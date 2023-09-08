@@ -1,0 +1,454 @@
+// converted by version 1.3
+// on Sun Jun 18 22:23:15 WET 2023
+
+.package com/sisbd/employee {
+	.aid 0x1:0x2:0x3:0x4:0x5:0x6:0x7:0x8:0x9:0x0;
+	.version 1.0;
+
+	.imports {
+		0xA0:0x0:0x0:0x0:0x62:0x1:0x1 1.2;		//javacard/framework
+	}
+
+	.applet {
+		0x1:0x2:0x3:0x4:0x5:0x6:0x7:0x8:0x9:0x0:0x0 Employee;
+	}
+
+	.constantPool {
+		// 0
+		instanceFieldRef byte[] Employee/INIT_PIN;
+		// 1
+		instanceFieldRef byte[] Employee/employeeID;
+		// 2
+		instanceFieldRef byte[] Employee/firstName;
+		// 3
+		instanceFieldRef byte[] Employee/lastName;
+		// 4
+		instanceFieldRef 0.9 Employee/pin;
+		// 5
+		classRef 0.9;		// javacard/framework/OwnerPIN
+		// 6
+		staticMethodRef 0.9.0(BB)V;		// javacard/framework/OwnerPIN.<init>(BB)V
+		// 7
+		staticMethodRef 0.3.0()V;		// javacard/framework/Applet.<init>()V
+		// 8
+		virtualMethodRef 0.9.8([BSB)V;		// javacard/framework/OwnerPIN.update([BSB)V
+		// 9
+		virtualMethodRef 0.3.1()V;		// javacard/framework/Applet.register()V
+		// 10
+		classRef Employee;
+		// 11
+		staticMethodRef Employee/<init>()V;
+		// 12
+		virtualMethodRef 0.10.1()[B;		// javacard/framework/APDU.getBuffer()[B
+		// 13
+		virtualMethodRef 0.3.3()Z;		// javacard/framework/Applet.selectingApplet()Z
+		// 14
+		staticMethodRef 0.7.1(S)V;		// javacard/framework/ISOException.throwIt(S)V
+		// 15
+		staticMethodRef Employee/VerificatioPIN(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+		// 16
+		staticMethodRef Employee/getEmployeeID(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+		// 17
+		staticMethodRef Employee/getFirstName(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+		// 18
+		staticMethodRef Employee/getLastName(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+		// 19
+		staticMethodRef 0.16.1([BS[BSS)S;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+		// 20
+		virtualMethodRef 0.10.8(SS)V;		// javacard/framework/APDU.setOutgoingAndSend(SS)V
+		// 21
+		staticMethodRef 0.16.6([BSS)S;		// javacard/framework/Util.setShort([BSS)S
+		// 22
+		virtualMethodRef 0.10.6()S;		// javacard/framework/APDU.setIncomingAndReceive()S
+		// 23
+		virtualMethodRef 0.9.1([BSB)Z;		// javacard/framework/OwnerPIN.check([BSB)Z
+	}
+
+	.class public Employee 0 extends 0.3 {		// extends javacard/framework/Applet
+
+		.fields {
+			private byte[] INIT_PIN 0;		// [B
+			 0.9 pin 1;		// Ljavacard/framework/OwnerPIN;
+			 byte[] employeeID 2;		// [B
+			 byte[] firstName 3;		// [B
+			 byte[] lastName 4;		// [B
+			public static final byte INS_TEST_CODE_PIN = 0;		// B
+			public static final byte MAX_ERROR_PIN = 3;		// B
+			public static final byte MAX_PIN_LENGTH = 4;		// B
+			static final byte CLA = 4;		// B
+			static final byte GET_EMPLOYEE_ID = 1;		// B
+			static final byte GET_FIRST_NAME = 2;		// B
+			static final byte GET_LAST_NAME = 3;		// B
+			static final short MAX_ID_SIZE = 11;		// S
+			static final short MAX_NAME_SIZE = 7;		// S
+			static final short SW_VERIFICATION_FAILED = 25344;		// S
+			static final short SW_PIN_VERIFICATION_REQUIRED = 25345;		// S
+		}
+
+		.publicMethodTable 7 {
+			equals(Ljava/lang/Object;)Z;
+			register()V;
+			register([BSB)V;
+			selectingApplet()Z;
+			deselect()V;
+			getShareableInterfaceObject(Ljavacard/framework/AID;B)Ljavacard/framework/Shareable;;
+			select()Z;
+			process(Ljavacard/framework/APDU;)V;
+		}
+
+		.packageMethodTable 0 {
+		}
+
+		.method private <init>()V {
+			.stack 5;
+			.locals 0;
+
+				L0:	aload_0;
+					invokespecial 7;		// javacard/framework/Applet.<init>()V
+					aload_0;
+					sconst_4;
+					newarray 11;
+					dup;
+					sconst_0;
+					sconst_1;
+					bastore;
+					dup;
+					sconst_1;
+					sconst_3;
+					bastore;
+					dup;
+					sconst_2;
+					bspush 9;
+					bastore;
+					dup;
+					sconst_3;
+					sconst_3;
+					bastore;
+					putfield_a 0;		// reference com/sisbd/employee/Employee.INIT_PIN
+					aload_0;
+					aconst_null;
+					putfield_a 1;		// reference com/sisbd/employee/Employee.employeeID
+					aload_0;
+					aconst_null;
+					putfield_a 2;		// reference com/sisbd/employee/Employee.firstName
+					aload_0;
+					aconst_null;
+					putfield_a 3;		// reference com/sisbd/employee/Employee.lastName
+					aload_0;
+					new 5;		// javacard/framework/OwnerPIN
+					dup;
+					sconst_3;
+					sconst_4;
+					invokespecial 6;		// javacard/framework/OwnerPIN.<init>(BB)V
+					putfield_a 4;		// reference com/sisbd/employee/Employee.pin
+					getfield_a_this 4;		// reference com/sisbd/employee/Employee.pin
+					getfield_a_this 0;		// reference com/sisbd/employee/Employee.INIT_PIN
+					sconst_0;
+					sconst_4;
+					invokevirtual 8;		// javacard/framework/OwnerPIN.update([BSB)V
+					aload_0;
+					bspush 11;
+					newarray 11;
+					putfield_a 1;		// reference com/sisbd/employee/Employee.employeeID
+					aload_0;
+					bspush 7;
+					newarray 11;
+					putfield_a 2;		// reference com/sisbd/employee/Employee.firstName
+					aload_0;
+					bspush 7;
+					newarray 11;
+					putfield_a 3;		// reference com/sisbd/employee/Employee.lastName
+					getfield_a_this 1;		// reference com/sisbd/employee/Employee.employeeID
+					sconst_0;
+					bspush 69;
+					bastore;
+					getfield_a_this 1;		// reference com/sisbd/employee/Employee.employeeID
+					sconst_1;
+					bspush 50;
+					bastore;
+					getfield_a_this 1;		// reference com/sisbd/employee/Employee.employeeID
+					sconst_2;
+					bspush 55;
+					bastore;
+					getfield_a_this 1;		// reference com/sisbd/employee/Employee.employeeID
+					sconst_3;
+					bspush 45;
+					bastore;
+					getfield_a_this 1;		// reference com/sisbd/employee/Employee.employeeID
+					sconst_4;
+					bspush 48;
+					bastore;
+					getfield_a_this 1;		// reference com/sisbd/employee/Employee.employeeID
+					sconst_5;
+					bspush 49;
+					bastore;
+					getfield_a_this 1;		// reference com/sisbd/employee/Employee.employeeID
+					bspush 6;
+					bspush 57;
+					bastore;
+					getfield_a_this 1;		// reference com/sisbd/employee/Employee.employeeID
+					bspush 7;
+					bspush 51;
+					bastore;
+					getfield_a_this 1;		// reference com/sisbd/employee/Employee.employeeID
+					bspush 8;
+					bspush 47;
+					bastore;
+					getfield_a_this 1;		// reference com/sisbd/employee/Employee.employeeID
+					bspush 9;
+					bspush 48;
+					bastore;
+					getfield_a_this 1;		// reference com/sisbd/employee/Employee.employeeID
+					bspush 10;
+					bspush 49;
+					bastore;
+					getfield_a_this 2;		// reference com/sisbd/employee/Employee.firstName
+					sconst_0;
+					bspush 77;
+					bastore;
+					getfield_a_this 2;		// reference com/sisbd/employee/Employee.firstName
+					sconst_1;
+					bspush 73;
+					bastore;
+					getfield_a_this 2;		// reference com/sisbd/employee/Employee.firstName
+					sconst_2;
+					bspush 67;
+					bastore;
+					getfield_a_this 2;		// reference com/sisbd/employee/Employee.firstName
+					sconst_3;
+					bspush 72;
+					bastore;
+					getfield_a_this 2;		// reference com/sisbd/employee/Employee.firstName
+					sconst_4;
+					bspush 65;
+					bastore;
+					getfield_a_this 2;		// reference com/sisbd/employee/Employee.firstName
+					sconst_5;
+					bspush 69;
+					bastore;
+					getfield_a_this 2;		// reference com/sisbd/employee/Employee.firstName
+					bspush 6;
+					bspush 76;
+					bastore;
+					getfield_a_this 3;		// reference com/sisbd/employee/Employee.lastName
+					sconst_0;
+					bspush 75;
+					bastore;
+					getfield_a_this 3;		// reference com/sisbd/employee/Employee.lastName
+					sconst_1;
+					bspush 65;
+					bastore;
+					getfield_a_this 3;		// reference com/sisbd/employee/Employee.lastName
+					sconst_2;
+					bspush 77;
+					bastore;
+					getfield_a_this 3;		// reference com/sisbd/employee/Employee.lastName
+					sconst_3;
+					bspush 85;
+					bastore;
+					getfield_a_this 3;		// reference com/sisbd/employee/Employee.lastName
+					sconst_4;
+					bspush 78;
+					bastore;
+					getfield_a_this 3;		// reference com/sisbd/employee/Employee.lastName
+					sconst_5;
+					bspush 71;
+					bastore;
+					getfield_a_this 3;		// reference com/sisbd/employee/Employee.lastName
+					bspush 6;
+					bspush 69;
+					bastore;
+					aload_0;
+					invokevirtual 9;		// javacard/framework/Applet.register()V
+					return;
+		}
+
+		.method public static install([BSB)V 0 {
+			.stack 2;
+			.locals 0;
+
+				L0:	new 10;		// com/sisbd/employee/Employee
+					dup;
+					invokespecial 11;		// com/sisbd/employee/Employee.<init>()V
+					pop;
+					return;
+		}
+
+		.method public process(Ljavacard/framework/APDU;)V 7 {
+			.stack 2;
+			.locals 1;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	aload_1;
+					invokevirtual 12;		// javacard/framework/APDU.getBuffer()[B
+					astore_2;
+				L1:	aload_0;
+					invokevirtual 13;		// javacard/framework/Applet.selectingApplet()Z
+					ifeq L3;
+				L2:	return;
+				L3:	aload_2;
+					sconst_0;
+					baload;
+					sconst_4;
+					if_scmpeq L5;
+				L4:	sspush 28160;
+					invokestatic 14;		// javacard/framework/ISOException.throwIt(S)V
+				L5:	aload_2;
+					sconst_1;
+					baload;
+					stableswitch L10 0 3 L6 L7 L8 L9;
+				L6:	aload_0;
+					aload_1;
+					invokespecial 15;		// com/sisbd/employee/Employee.VerificatioPIN(Ljavacard/framework/APDU;)V
+					goto L11;
+				L7:	aload_0;
+					aload_1;
+					invokespecial 16;		// com/sisbd/employee/Employee.getEmployeeID(Ljavacard/framework/APDU;)V
+					return;
+				L8:	aload_0;
+					aload_1;
+					invokespecial 17;		// com/sisbd/employee/Employee.getFirstName(Ljavacard/framework/APDU;)V
+					return;
+				L9:	aload_0;
+					aload_1;
+					invokespecial 18;		// com/sisbd/employee/Employee.getLastName(Ljavacard/framework/APDU;)V
+					return;
+				L10:	sspush 27904;
+					invokestatic 14;		// javacard/framework/ISOException.throwIt(S)V
+				L11:	return;
+		}
+
+		.method private getLastName(Ljavacard/framework/APDU;)V {
+			.stack 5;
+			.locals 1;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	aload_1;
+					invokevirtual 12;		// javacard/framework/APDU.getBuffer()[B
+					astore_2;
+				L1:	getfield_a_this 3;		// reference com/sisbd/employee/Employee.lastName
+					sconst_0;
+					aload_2;
+					sconst_0;
+					bspush 7;
+					invokestatic 19;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload_1;
+					sconst_0;
+					bspush 7;
+					invokevirtual 20;		// javacard/framework/APDU.setOutgoingAndSend(SS)V
+					return;
+		}
+
+		.method private VerificatioPIN(Ljavacard/framework/APDU;)V {
+			.stack 0;
+			.locals 0;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	return;
+		}
+
+		.method private getFirstName(Ljavacard/framework/APDU;)V {
+			.stack 5;
+			.locals 1;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	aload_1;
+					invokevirtual 12;		// javacard/framework/APDU.getBuffer()[B
+					astore_2;
+				L1:	getfield_a_this 2;		// reference com/sisbd/employee/Employee.firstName
+					sconst_0;
+					aload_2;
+					sconst_0;
+					bspush 7;
+					invokestatic 19;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload_1;
+					sconst_0;
+					bspush 7;
+					invokevirtual 20;		// javacard/framework/APDU.setOutgoingAndSend(SS)V
+					return;
+		}
+
+		.method private getEmployeeID(Ljavacard/framework/APDU;)V {
+			.stack 3;
+			.locals 2;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	aload_1;
+					invokevirtual 12;		// javacard/framework/APDU.getBuffer()[B
+					astore_2;
+				L1:	bspush 123;
+					sstore_3;
+				L2:	aload_2;
+					sconst_0;
+					sload_3;
+					invokestatic 21;		// javacard/framework/Util.setShort([BSS)S
+					pop;
+					aload_1;
+					sconst_0;
+					sconst_2;
+					invokevirtual 20;		// javacard/framework/APDU.setOutgoingAndSend(SS)V
+					return;
+		}
+
+		.method private VerificationPIN(Ljavacard/framework/APDU;)V {
+			.stack 4;
+			.locals 3;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	aload_1;
+					invokevirtual 12;		// javacard/framework/APDU.getBuffer()[B
+					astore_2;
+				L1:	aload_1;
+					invokevirtual 22;		// javacard/framework/APDU.setIncomingAndReceive()S
+					s2b;
+					sstore_3;
+				L2:	getfield_a_this 4;		// reference com/sisbd/employee/Employee.pin
+					aload_2;
+					sconst_5;
+					sload_3;
+					invokevirtual 23;		// javacard/framework/OwnerPIN.check([BSB)Z
+					ifne L4;
+				L3:	sspush 25344;
+					invokestatic 14;		// javacard/framework/ISOException.throwIt(S)V
+				L4:	aload_1;
+					invokevirtual 12;		// javacard/framework/APDU.getBuffer()[B
+					astore 4;
+				L5:	aload 4;
+					sconst_0;
+					sconst_2;
+					invokestatic 21;		// javacard/framework/Util.setShort([BSS)S
+					pop;
+					aload 4;
+					sconst_2;
+					sconst_1;
+					bastore;
+					aload 4;
+					sconst_3;
+					bspush 35;
+					bastore;
+					aload_1;
+					sconst_0;
+					sconst_4;
+					invokevirtual 20;		// javacard/framework/APDU.setOutgoingAndSend(SS)V
+					return;
+		}
+
+	}
+
+}

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="594.0" prefWidth="1049.0" style="-fx-background-radius: 1em;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sisbd.confirmationdb.controllers.HelloController">
+    <children>
+        <BorderPane prefHeight="594.0" prefWidth="1049.0" style="-fx-background-color: #474C5F; -fx-background-radius: 1em;">
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+         <left>
+                <Pane prefHeight="584.0" prefWidth="1040.0" style="-fx-background-color: #003f88;" BorderPane.alignment="CENTER">
+                    <children>
+                        <GridPane fx:id="gridPin" alignment="CENTER" cacheShape="false" hgap="10.0" layoutX="395.0" layoutY="205.0" prefHeight="300.0" prefWidth="277.0" vgap="10.0">
+
+                            <children>
+                                <Button fx:id="btn7" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" styleClass="button3" stylesheets="@../styles/fullpackstyling.css" text="7" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <Button fx:id="btn8" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" styleClass="button3" stylesheets="@../styles/fullpackstyling.css" text="8" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                <Button fx:id="btn9" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" styleClass="button3" stylesheets="@../styles/fullpackstyling.css" text="9" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                                    <GridPane.margin>
+                                        <Insets />
+                                    </GridPane.margin></Button>
+                                <Button fx:id="btn4" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" styleClass="button3" stylesheets="@../styles/fullpackstyling.css" text="4" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                <Button fx:id="btn5" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" styleClass="button3" stylesheets="@../styles/fullpackstyling.css" text="5" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <Button fx:id="btn6" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" styleClass="button3" stylesheets="@../styles/fullpackstyling.css" text="6" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                <Button fx:id="btn1" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" styleClass="button3" stylesheets="@../styles/fullpackstyling.css" text="1" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                                <Button fx:id="btn2" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" styleClass="button3" stylesheets="@../styles/fullpackstyling.css" text="2" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                <Button fx:id="btn3" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" styleClass="button3" stylesheets="@../styles/fullpackstyling.css" text="3" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                <Button fx:id="btn0" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" styleClass="button3" stylesheets="@../styles/fullpackstyling.css" text="0" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                                <Button fx:id="btnOk" mnemonicParsing="false" onAction="#onEnterPinButtonClick" prefHeight="60.0" prefWidth="75.0" styleClass="button3" stylesheets="@../styles/fullpackstyling.css" text="ok" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                <Button fx:id="btnClear" mnemonicParsing="false" prefHeight="60.0" prefWidth="75.0" styleClass="button3" stylesheets="@../styles/fullpackstyling.css" text="&lt;-" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                            </children>
+                            <columnConstraints>
+                                <ColumnConstraints />
+                                <ColumnConstraints />
+                                <ColumnConstraints />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints maxHeight="61.0" minHeight="49.0" prefHeight="58.0" />
+                                <RowConstraints maxHeight="71.0" minHeight="59.0" prefHeight="62.0" />
+                                <RowConstraints />
+                                <RowConstraints />
+                            </rowConstraints>
+                        </GridPane>
+                        <Label fx:id="lblName" layoutX="395.0" layoutY="79.0" text="Please Enter Your Code PIN" textFill="#fbfcfc">
+                            <font>
+                                <Font size="25.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="lblGreeting" layoutX="395.0" layoutY="115.0" text="Welcome back to your work company ;-)" textFill="#989aad" />
+                        <Button fx:id="btnEX" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#closeWindow" prefHeight="24.0" prefWidth="35.0" style="-fx-background-color: #989AAD; -fx-background-radius: 1em;" text="--" textFill="#cdcdcd" />
+                  <TextField fx:id="pinFiels" layoutX="459.0" layoutY="157.0" />
+                  <Label fx:id="labelField" layoutX="518.0" layoutY="188.0" text="Label" textFill="#e8dada" />
+                    </children>
+                </Pane>
+         </left>
+        </BorderPane>
+    </children>
+</AnchorPane>
