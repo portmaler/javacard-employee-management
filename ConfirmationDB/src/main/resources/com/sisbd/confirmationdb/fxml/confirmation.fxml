@@ -76,6 +76,8 @@
             </ImageView>
          </children>
       </AnchorPane>
+
+
       <TableView fx:id="table_jobs" layoutX="353.0" layoutY="249.0" prefHeight="346.0" prefWidth="696.0">
         <columns>
           <TableColumn fx:id="col_jobid" prefWidth="63.0" text="ID_JOB" />
@@ -84,5 +86,24 @@
             <TableColumn fx:id="col_action" prefWidth="188.0" text="ACTION" />
         </columns>
       </TableView>
+      <Label layoutX="379.0" layoutY="62.0" text="Total Jobs : " textFill="#983ee1">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="669.0" layoutY="58.0" text="Total jobs solde : " textFill="#a72dc3">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="totalJobsLabel" layoutX="534.0" layoutY="65.0" prefHeight="32.0" prefWidth="108.0">
+         <font>
+            <Font size="22.0" />
+         </font></Label>
+      <Label fx:id="totalSoldLabel" layoutX="882.0" layoutY="64.0" prefHeight="32.0" prefWidth="116.0">
+         <font>
+            <Font size="22.0" />
+         </font></Label>
+
    </children>
 </AnchorPane>

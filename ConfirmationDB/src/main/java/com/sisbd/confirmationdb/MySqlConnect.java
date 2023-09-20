@@ -32,7 +32,7 @@ public class MySqlConnect {
             PreparedStatement ps = conn.prepareStatement("SELECT j.* FROM job j " +
                     "JOIN affectation a ON j.id = a.idjob " +
                     "JOIN employer e ON e.id = a.idemp " +
-                    "WHERE e.id = ?");
+                    "WHERE e.id_employer = ?");
             ps.setInt(1, employeeId);
 
             ResultSet rs = ps.executeQuery();
@@ -62,7 +62,7 @@ public class MySqlConnect {
         Connection conn = ConnectDb();
 
         try {
-            PreparedStatement ps = conn.prepareStatement("DELETE FROM affectation WHERE idemp = ? and idjob = ?");
+            PreparedStatement ps = conn.prepareStatement("DELETE FROM affectation WHERE idemp = (SELECT id from employer where id_employer = ?) and idjob = ?");
             ps.setInt(1, empId);
             ps.setInt(2, jobId);
 
@@ -85,7 +85,7 @@ public class MySqlConnect {
         int previousBalance = 0;
         try {
             // Get the previous balance of the employee
-            PreparedStatement selectPs = conn.prepareStatement("SELECT balance_month FROM employer WHERE id = ?");
+            PreparedStatement selectPs = conn.prepareStatement("SELECT balance_month FROM employer WHERE id_employer = ?");
             selectPs.setInt(1, empId);
             ResultSet rs = selectPs.executeQuery();
 
@@ -95,7 +95,7 @@ public class MySqlConnect {
                int newBalance = previousBalance + solde;
 
                 // Update the balance in the employee table
-                PreparedStatement updatePs = conn.prepareStatement("UPDATE employer SET balance_month = ? WHERE id = ?");
+                PreparedStatement updatePs = conn.prepareStatement("UPDATE employer SET balance_month = ? WHERE id_employer = ?");
                 updatePs.setDouble(1, newBalance);
                 updatePs.setInt(2, empId);
                 int affectedRows = updatePs.executeUpdate();

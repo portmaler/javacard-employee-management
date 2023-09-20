@@ -232,9 +232,17 @@ public class BinUtils {
         return (short) (((b1 & 0xFF) << 8) | ((b2 & 0xFF) << 0));
     }
 
+   /* public static int bytesToInt(byte[] b, int bOff) {
+        return (int) (((b[bOff] & 0xFF) << 24) | ((b[bOff + 1] & 0xFF) << 16) |
+                ((b[bOff + 2] & 0xFF) << 8) | ((b[bOff + 3] & 0xFF) << 0));
+    }*/
     public static int bytesToInt(byte[] b, int bOff) {
-        return (int) (((b[bOff] & 0xFF) << 24) | ((b[bOff + 1] & 0xFF) << 16) | ((b[bOff + 2] & 0xFF) << 8) | ((b[bOff + 3] & 0xFF) << 0));
+        return ((b[bOff] & 0xFF) << 24) |
+                ((b[bOff + 1] & 0xFF) << 16) |
+                ((b[bOff + 2] & 0xFF) << 8) |
+                (b[bOff + 3] & 0xFF);
     }
+
 
     public static boolean isBytePrintableAscii(byte b) {
         int i = (int) (b & 0xFF);

@@ -4,6 +4,7 @@ import com.sisbd.confirmationdb.MySqlConnect;
 import com.sisbd.confirmationdb.javacard.EmployeeTask;
 import com.sisbd.confirmationdb.javacard.IdEmployeTask;
 import com.sisbd.confirmationdb.models.Job;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -49,13 +50,20 @@ public class ConfirmController implements Initializable {
     @FXML
     private TableView<Job> table_jobs;
 
-    ObservableList<Job> listM;
+    @FXML
+    private Label totalJobsLabel;
+
+    @FXML
+    private Label totalSoldLabel;
+
+
+    ObservableList<Job> listM = FXCollections.observableArrayList();;
     int index = -1;
     Connection conn =null;
     ResultSet rs = null;
     PreparedStatement pst = null;
     private final IdEmployeTask getidtASK = new IdEmployeTask();
-    Short idEmp = 0;
+    Integer idEmp = 0;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -85,6 +93,15 @@ public class ConfirmController implements Initializable {
                 System.out.println(listM.toString());
                 table_jobs.setItems(listM);
 
+                // Calculate total number of jobs and total sold
+                int totalJobs = listM.size();
+                double totalSold = listM.stream().mapToDouble(Job::getPrice).sum();
+
+                // Update labels with totals
+                // Update labels with totals
+                totalJobsLabel.setText(String.valueOf(totalJobs));
+                totalSoldLabel.setText(String.valueOf(totalSold));
+
                 col_action.setCellFactory(param -> new TableCell<Job, Button>() {
                     final Button confirmButton = new Button("Confirm");
 
@@ -96,7 +113,9 @@ public class ConfirmController implements Initializable {
                             boolean deleteResult = MySqlConnect.deleteAffectationByJobId(idEmp,jobId);
                             int updateSolde = MySqlConnect.updateEmployeeBalance(idEmp,balance);
                             if(deleteResult){
+                                listM.remove(job);
                                 System.out.println("job with this id is confirmed  and affectation deleted : " + jobId);
+                                setEmployeeData(idEmp);
                             }else{
                                 System.out.println("error deleting the affectation of concerned job: " + jobId);
                             }
@@ -132,7 +151,7 @@ public class ConfirmController implements Initializable {
         Connection conn = ConnectDb();
 
         try {
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM employer WHERE id = ?");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM employer WHERE id_employer = ?");
             ps.setInt(1, employeeId);
 
             ResultSet rs = ps.executeQuery();
