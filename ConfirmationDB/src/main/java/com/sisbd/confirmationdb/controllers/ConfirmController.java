@@ -86,6 +86,7 @@ public class ConfirmController implements Initializable {
 
 
                 setEmployeeData(idEmp);
+                loadJobsData();
                 col_jobid.setCellValueFactory(new PropertyValueFactory<Job, Integer>("id"));
                 col_jobtitle.setCellValueFactory(new PropertyValueFactory<Job, String> ("title") );
                 col_jobprice.setCellValueFactory(new PropertyValueFactory<Job, Integer> ("price")) ;
@@ -93,14 +94,14 @@ public class ConfirmController implements Initializable {
                 System.out.println(listM.toString());
                 table_jobs.setItems(listM);
 
-                // Calculate total number of jobs and total sold
+              /*  // Calculate total number of jobs and total sold
                 int totalJobs = listM.size();
                 double totalSold = listM.stream().mapToDouble(Job::getPrice).sum();
 
                 // Update labels with totals
                 // Update labels with totals
                 totalJobsLabel.setText(String.valueOf(totalJobs));
-                totalSoldLabel.setText(String.valueOf(totalSold));
+                totalSoldLabel.setText(String.valueOf(totalSold));*/
 
                 col_action.setCellFactory(param -> new TableCell<Job, Button>() {
                     final Button confirmButton = new Button("Confirm");
@@ -116,6 +117,7 @@ public class ConfirmController implements Initializable {
                                 listM.remove(job);
                                 System.out.println("job with this id is confirmed  and affectation deleted : " + jobId);
                                 setEmployeeData(idEmp);
+                                loadJobsData();
                             }else{
                                 System.out.println("error deleting the affectation of concerned job: " + jobId);
                             }
@@ -178,6 +180,19 @@ public class ConfirmController implements Initializable {
         }
     }
 
+    private void loadJobsData() {
+        listM = MySqlConnect.getDataJobs(Integer.parseInt(String.valueOf(idEmp)));
+        System.out.println(listM.toString());
+        table_jobs.setItems(listM);
+
+        // Calculate total number of jobs and total sold
+        int totalJobs = listM.size();
+        double totalSold = listM.stream().mapToDouble(Job::getPrice).sum();
+
+        // Update labels with totals
+        totalJobsLabel.setText(String.valueOf(totalJobs));
+        totalSoldLabel.setText(String.valueOf(totalSold));
+    }
 
 
 

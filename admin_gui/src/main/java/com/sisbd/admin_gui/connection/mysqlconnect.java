@@ -40,7 +40,7 @@ public class mysqlconnect {
 	public static void addEmployer(Employer emp, Connection conn) {
 
 		try {
-			PreparedStatement ps = conn.prepareStatement("insert into employer (firstname, lastname, phone, speciality) values(?, ?, ?, ?)");
+			PreparedStatement ps = conn.prepareStatement("insert into employer (firstname, lastname, phone, speciality) values(?, ?, ?,?)");
 			
 			ps.setString(1, emp.getFirstName());
 			ps.setString(2, emp.getLastName());
