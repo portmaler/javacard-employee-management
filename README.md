@@ -2,10 +2,7 @@
 
 Welcome to the Java Card Employee Management project repository! This repository houses a multifaceted Java Card project, consisting of three main components. It empowers you to manage employee information securely using Java Card technology. The project is structured into three distinct folders:
 
-<video width="320" height="240" controls>
-  <source src="JavacardEmployee.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+
 
 ## Table of Contents
 
