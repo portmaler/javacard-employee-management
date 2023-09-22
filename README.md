@@ -1,40 +1,57 @@
 # Java Card Employee Management Project
 
-This repository contains a Java Card applet and a JavaFX client application for communication with the applet. The applet is designed to perform simple counter operations, and the client allows you to interact with the applet using APDU commands.
+Welcome to the Java Card Employee Management project repository! This repository houses a multifaceted Java Card project, consisting of three main components. It empowers you to manage employee information securely using Java Card technology. The project is structured into three distinct folders:
+
+
+[![Watch the video](https://img.youtube.com/vi/v=kWUXo76ea4M/0.jpg)](https://www.youtube.com/watch?v=kWUXo76ea4M)
 
 ## Table of Contents
 
-- [Java Card Applet](#java-card-applet)
-- [JavaFX Client Application](#javafx-client-application)
+- [Admin UI (admin_gui)](#admin-ui-admin_gui)
+- [Confirmation Database (ConfirmationDb)](#confirmation-database-confirmationdb)
+- [Java Card Applet (employee)](#java-card-applet-employee)
 - [Getting Started](#getting-started)
-- [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
 
-## Java Card Applet
+## Admin UI (admin_gui)
 
-The Java Card applet (`compteur` package) is a simple applet that implements basic counter operations:
+The `admin_gui` folder houses a JavaFX application designed to simplify employee and job management tasks. It features screens for adding employees, defining job roles, and establishing job assignments in the database. This component streamlines your administrative duties for efficient employee management.
 
-- Increment the counter
-- Decrement the counter
-- Get the current counter value
-- Initialize the counter to a specific value
+## Confirmation Database (ConfirmationDb)
 
-The applet is designed to be loaded onto a Java Card platform and can be interacted with using APDU commands.
+The `ConfirmationDb` folder hosts another JavaFX application with two pivotal screens. The initial screen prompts the user to enter a PIN code, subsequently connecting to a real Java Card reader. The second screen facilitates the confirmation of job assignments in the database. This component ensures secure and accurate job confirmation processes.
 
-## JavaFX Client Application
+## Java Card Applet (employee)
 
-The JavaFX client application (`compteurclient` package) provides a graphical user interface (GUI) for interacting with the Java Card applet. It allows you to send APDU commands to the applet to perform counter operations and displays the results.
+The `employee` folder comprises the heart of the project—an essential Java Card applet. This applet enables secure access to employee information, including unique employee IDs, first names, and last names. It is a cornerstone for managing and retrieving vital employee data.
 
 ## Getting Started
 
-To get started with this project, you'll need the following:
+To begin utilizing this project, ensure you have the following prerequisites:
 
-- A Java Card simulator or physical card to install the applet
+- A Java Card simulator or a physical Java Card
 - Java Development Kit (JDK) installed on your development machine
 - JavaFX SDK (if not included in your JDK distribution)
 
-Clone this repository to your local machine:
+## Contributing
 
-```shell
-git clone https://github.com/your-username/your-repo.git
+We welcome contributions to this project. To contribute, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them.
+4. Push your changes to your forked repository.
+5. Create a pull request to the main repository.
+
+Before contributing, please review our [Code of Conduct](CODE_OF_CONDUCT.md) and [Contributing Guidelines](CONTRIBUTING.md).
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## Contact
+
+If you have any questions or need further assistance, feel free to contact us at contact@dimaforus.com.
+
+Happy coding!
