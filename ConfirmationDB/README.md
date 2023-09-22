@@ -8,9 +8,7 @@ Welcome to the Confirmation Database of our JavaFX application! This application
 
 - [Features](#features)
 - [Getting Started](#getting-started)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+
 
 ## Features
 
@@ -28,9 +26,9 @@ To get started with the Confirmation Database application, follow these steps:
    ```shell
    git clone https://github.com/portmaler/javacard-employee-management.git
 
-2. **Navigate to the Spring Boot App Directory:**
+2. **Navigate to the ConfirmationDB Directory:**
 
     ```bash 
-    cd admin_ui
+    cd ConfirmationDB
 
 3. **Build and run the JavaFX app**

@@ -7,9 +7,6 @@ Welcome to the Admin UI of our JavaFX application! This user-friendly interface 
 
 - [Features](#features)
 - [Getting Started](#getting-started)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 
@@ -29,7 +26,7 @@ To get started with this Admin UI application, follow these steps:
    ```shell
    git clone https://github.com/portmaler/javacard-employee-management.git
 
-2. **Navigate to the Spring Boot App Directory:**
+2. **Navigate to the AdminUI JavaFX Directory:**
 
     ```bash 
     cd admin_ui

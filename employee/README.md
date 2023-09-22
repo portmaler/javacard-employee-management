@@ -8,9 +8,6 @@ Welcome to the "Employee" folder, which contains the JavaCard applet project and
 
 - [Applet Overview](#applet-overview)
 - [Uploading to a Real JavaCard](#uploading-to-a-real-javacard)
-- [Getting Started](#getting-started)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Applet Overview
 
